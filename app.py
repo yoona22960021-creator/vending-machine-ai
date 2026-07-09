@@ -13,7 +13,7 @@ st.markdown("---")
 
 # 로그인된 사용자의 바탕화면 경로를 자동으로 인식하도록 설정
 desktop_path = os.path.join(os.path.expanduser("~"), "Desktop")
-file_name = os.path.join(desktop_path, "data.xlsx")
+file_name = "data.xlsx"
 
 @st.cache_data
 def load_data():
