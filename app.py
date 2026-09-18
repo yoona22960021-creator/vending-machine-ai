@@ -8,7 +8,7 @@ import os
 st.set_page_config(page_title="자판기 AI 추천 시스템", page_icon="🥤", layout="centered")
 
 st.title("🥤 가림고 자판기 추천 시스템")
-st.write("오늘도 맛있게 드세용~^^.")
+st.write("원하시는 음료를 추천해드립니다.")
 st.markdown("---")
 
 # 로그인된 사용자의 바탕화면 경로를 자동으로 인식하도록 설정
