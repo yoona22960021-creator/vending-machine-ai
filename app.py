@@ -50,11 +50,11 @@ question = st.selectbox(
     "어떤 음료를 찾고 계신가요?",
     [
         "선택해주세요",
-        "🤖 회귀 식으로 판단한 최고의 음료수는? ",
+        "🤖 AI회귀 식으로 판단한 최고의 음료수는? ",
         "📐 내가 원하는 조건과 가장 유사한 음료는? ",
         "💰 학생들이 판단한 가성비 최고인 음료수는?",
-        "🔥 가장 인기 많은 음료수 (실제 투표 1위)",
-        "🏃 다이어트 중인데 칼로리 낮은거~ (저칼로리)"
+        "🔥 학생들이 투표한 가장 인기 많은 음료수는? ",
+        "🏃 다이어트 중인데 칼로리 낮은 음료 없나? (저칼로리)"
     ]
 )
 
@@ -82,7 +82,7 @@ if question != "선택해주세요":
             st.session_state.cal_val = avg_cal
             st.session_state.price_val = avg_price
 
-        if col1.button("🍃 라이트 픽 (저당/저칼로리)"):
+        if col1.button("🍃 다이어트용 (저당/저칼로리)"):
             st.session_state.sugar_val = 5
             st.session_state.cal_val = 30
             st.session_state.price_val = 1200
@@ -101,7 +101,7 @@ if question != "선택해주세요":
         user_calories = st.slider("선호하는 칼로리 (kcal)", min_cal, max_cal, int(st.session_state.cal_val))
         user_price = st.slider("선호하는 가격 (원)", min_price, max_price, int(st.session_state.price_val))
         
-        if st.button("유사도 분석 시작"):
+        if st.button("코사인 유사도 분석 시작"):
             features = ['Sugar', 'Calories', 'Price']
             matrix = df[features].values
             user_vector = np.array([[user_sugar, user_calories, user_price]])
